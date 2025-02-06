@@ -1,4 +1,4 @@
-import { act, renderHook } from '@testing-library/react';
+import { renderHook } from '@testing-library/react';
 
 import { events } from '../../__mocks__/response/realEvents.json';
 import { useSearch } from '../../hooks/useSearch.ts';
