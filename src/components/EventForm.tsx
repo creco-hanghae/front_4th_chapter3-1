@@ -11,11 +11,11 @@ import {
   Button,
   useToast,
   AlertDialog,
-  ModalBody as AlertDialogBody,
+  ModalBody,
   AlertDialogContent,
-  ModalFooter as AlertDialogFooter,
-  ModalHeader as AlertDialogHeader,
-  ModalOverlay as AlertDialogOverlay,
+  ModalFooter,
+  ModalHeader,
+  ModalOverlay,
   Text,
 } from '@chakra-ui/react';
 import { useRef, useState } from 'react';
@@ -248,13 +248,13 @@ export const EventForm = ({ saveEvent, events, eventForm }: EventFormProps) => {
         leastDestructiveRef={cancelRef}
         onClose={() => setIsOverlapDialogOpen(false)}
       >
-        <AlertDialogOverlay>
+        <ModalOverlay>
           <AlertDialogContent>
-            <AlertDialogHeader fontSize="lg" fontWeight="bold">
+            <ModalHeader fontSize="lg" fontWeight="bold">
               일정 겹침 경고
-            </AlertDialogHeader>
+            </ModalHeader>
 
-            <AlertDialogBody>
+            <ModalBody>
               다음 일정과 겹칩니다:
               {overlappingEvents.map((event) => (
                 <Text key={event.id}>
@@ -262,9 +262,9 @@ export const EventForm = ({ saveEvent, events, eventForm }: EventFormProps) => {
                 </Text>
               ))}
               계속 진행하시겠습니까?
-            </AlertDialogBody>
+            </ModalBody>
 
-            <AlertDialogFooter>
+            <ModalFooter>
               <Button ref={cancelRef} onClick={() => setIsOverlapDialogOpen(false)}>
                 취소
               </Button>
@@ -293,9 +293,9 @@ export const EventForm = ({ saveEvent, events, eventForm }: EventFormProps) => {
               >
                 계속 진행
               </Button>
-            </AlertDialogFooter>
+            </ModalFooter>
           </AlertDialogContent>
-        </AlertDialogOverlay>
+        </ModalOverlay>
       </AlertDialog>
     </>
   );
